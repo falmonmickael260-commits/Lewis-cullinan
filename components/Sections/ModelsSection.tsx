@@ -27,6 +27,7 @@ export function ModelsSection() {
                 gradient={model.gradient}
                 image={model.image}
                 imageAlt={model.imageAlt}
+                kenBurns
                 className="mb-7 flex aspect-4/3 w-full items-end p-7 md:p-9"
               >
                 <span className="eyebrow relative text-chrome/50">

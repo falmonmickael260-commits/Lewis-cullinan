@@ -63,8 +63,8 @@ export function GallerySection() {
           ref={trackRef}
           className="flex flex-col gap-6 px-6 pb-32 md:px-10 lg:h-full lg:flex-row lg:items-center lg:gap-8 lg:pb-0 lg:pl-10"
         >
-          {GALLERY_ITEMS.map((item) => (
-            <GalleryCard key={item.index} item={item} />
+          {GALLERY_ITEMS.map((item, i) => (
+            <GalleryCard key={item.index} item={item} offset={i % 2 === 1} />
           ))}
           <div className="hidden shrink-0 lg:block lg:w-[8vw]" />
         </div>
@@ -73,13 +73,24 @@ export function GallerySection() {
   );
 }
 
-function GalleryCard({ item }: { item: (typeof GALLERY_ITEMS)[number] }) {
+function GalleryCard({
+  item,
+  offset,
+}: {
+  item: (typeof GALLERY_ITEMS)[number];
+  offset: boolean;
+}) {
   return (
-    <div className="group relative aspect-4/5 w-full shrink-0 lg:h-[62vh] lg:w-[46vw]">
+    <div
+      className={`group relative aspect-4/5 w-full shrink-0 lg:h-[62vh] lg:w-[46vw] ${
+        offset ? "lg:translate-y-8" : "lg:-translate-y-8"
+      }`}
+    >
       <TexturePanel
         gradient={item.gradient}
         image={item.image}
         imageAlt={item.imageAlt}
+        kenBurns
         className="h-full w-full"
       >
         <div

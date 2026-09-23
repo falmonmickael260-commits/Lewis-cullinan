@@ -3,7 +3,6 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Hero3D } from "@/components/Hero3D/Hero3D";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -11,8 +10,8 @@ gsap.registerPlugin(ScrollTrigger);
 export function Hero() {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
+  const mediaRef = useRef<HTMLDivElement>(null);
   const scrollDownRef = useRef<HTMLDivElement>(null);
-  const scrollProgress = useRef(0);
   const reducedMotion = useReducedMotion();
 
   useEffect(() => {
@@ -38,6 +37,12 @@ export function Hero() {
         "-=0.7"
       )
       .fromTo(
+        ".hero-byline",
+        { opacity: 0 },
+        { opacity: 1, duration: 1 },
+        "-=0.8"
+      )
+      .fromTo(
         ".hero-subtitle",
         { opacity: 0, y: 16 },
         { opacity: 1, y: 0, duration: 1, ease: "expo.out" },
@@ -58,13 +63,15 @@ export function Hero() {
       end: "bottom bottom",
       scrub: true,
       onUpdate: (self) => {
-        scrollProgress.current = self.progress;
         gsap.set(textRef.current, {
           opacity: 1 - Math.min(self.progress / 0.4, 1),
           y: self.progress * -40,
         });
         gsap.set(scrollDownRef.current, {
           opacity: 1 - Math.min(self.progress / 0.15, 1),
+        });
+        gsap.set(mediaRef.current, {
+          scale: 1.15 - self.progress * 0.15,
         });
       },
     });
@@ -79,9 +86,32 @@ export function Hero() {
       className="relative h-[200vh] bg-carbon"
     >
       <div className="sticky top-0 h-screen w-full overflow-hidden">
-        <Hero3D scrollProgress={scrollProgress} />
+        <div ref={mediaRef} className="absolute inset-0 scale-[1.15]">
+          {reducedMotion ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src="/images/cullinan-front-blue.jpg"
+              alt="Rolls-Royce Cullinan noir mat, calandre éclairée, présentée devant une œuvre murale bleue"
+              className="h-full w-full object-cover"
+              style={{ filter: "brightness(0.85)" }}
+            />
+          ) : (
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              poster="/images/cullinan-front-blue.jpg"
+              className="h-full w-full object-cover"
+              style={{ filter: "brightness(0.85)" }}
+            >
+              <source src="/videos/hero-mascot.mp4" type="video/mp4" />
+            </video>
+          )}
+        </div>
 
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,rgba(0,0,0,0.65)_100%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(0,0,0,0.75)_100%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.35)_0%,transparent_25%,transparent_60%,rgba(0,0,0,0.55)_100%)]" />
 
         <div
           ref={textRef}
@@ -91,6 +121,9 @@ export function Hero() {
           <h1 className="hero-title font-display text-[clamp(3.2rem,11vw,9rem)] leading-[0.95] tracking-tight text-chrome">
             Cullinan
           </h1>
+          <p className="hero-byline mt-3 font-display text-sm italic text-chrome/45">
+            par Nexoo
+          </p>
           <p className="hero-subtitle eyebrow mt-5 text-chrome/55">
             Une Déclaration En Mouvement
           </p>

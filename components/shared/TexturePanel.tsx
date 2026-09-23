@@ -4,12 +4,14 @@ export function TexturePanel({
   gradient,
   image,
   imageAlt = "",
+  kenBurns = false,
   className,
   children,
 }: {
   gradient: string;
   image?: string;
   imageAlt?: string;
+  kenBurns?: boolean;
   className?: string;
   children?: React.ReactNode;
 }) {
@@ -24,7 +26,7 @@ export function TexturePanel({
           alt={imageAlt}
           fill
           sizes="(min-width: 768px) 50vw, 100vw"
-          className="object-cover"
+          className={kenBurns ? "object-cover animate-ken-burns" : "object-cover"}
           style={{ filter: "brightness(1.15) contrast(1.05) saturate(0.92)" }}
         />
       )}

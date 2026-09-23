@@ -1,6 +1,7 @@
 "use client";
 
 import { RevealText } from "@/components/shared/RevealText";
+import { TexturePanel } from "@/components/shared/TexturePanel";
 
 const MARKS = [
   { value: "Goodwood", label: "Angleterre" },
@@ -16,21 +17,31 @@ export function CraftsmanshipSection() {
     >
       <div className="mx-auto max-w-[1600px] px-6 md:px-10">
         <div className="grid gap-16 md:grid-cols-2 md:gap-24">
-          <div>
-            <RevealText as="p" className="eyebrow mb-4">
-              07 — Savoir-faire
-            </RevealText>
-            <RevealText
-              as="h2"
-              className="font-display text-[clamp(2.2rem,5.5vw,4.5rem)] leading-[1.05] text-chrome"
-            >
-              Fabriquée à la main, éprouvée par le temps.
-            </RevealText>
-          </div>
+          <RevealText y={40}>
+            <TexturePanel
+              gradient="radial-gradient(120% 100% at 30% 20%, #1a1a1d 0%, #040404 60%), linear-gradient(150deg, #000 0%, #0a0a0b 100%)"
+              image="/images/leather-stitch.jpg"
+              imageAlt="Cuir noir surpiqué à la main, détail d'une portière Rolls-Royce"
+              className="aspect-4/5 w-full md:aspect-auto md:h-full"
+            />
+          </RevealText>
 
           <div className="flex flex-col justify-center gap-8">
+            <div>
+              <RevealText as="p" className="eyebrow mb-4">
+                07 — Savoir-faire
+              </RevealText>
+              <RevealText
+                as="h2"
+                className="font-display text-[clamp(2.2rem,5.5vw,4.5rem)] leading-[1.05] text-chrome"
+              >
+                Fabriquée à la main, éprouvée par le temps.
+              </RevealText>
+            </div>
+
             <RevealText
               as="p"
+              delay={0.1}
               className="text-base leading-relaxed text-chrome/55 md:text-lg"
             >
               Chaque Cullinan est assemblée au siège de la marque, à

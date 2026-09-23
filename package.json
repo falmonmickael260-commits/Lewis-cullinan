@@ -11,19 +11,15 @@
     "remotion:render": "remotion render remotion/index.ts CullinanLoader out/loader.mp4"
   },
   "dependencies": {
-    "@react-three/drei": "^10.7.8",
-    "@react-three/fiber": "^9.8.0",
     "@remotion/cli": "^4.0.527",
     "@remotion/player": "^4.0.527",
     "@remotion/transitions": "^4.0.527",
-    "@types/three": "^0.186.0",
     "gsap": "^3.15.0",
     "lenis": "^1.3.26",
     "next": "16.3.6",
     "react": "19.2.8",
     "react-dom": "19.2.8",
-    "remotion": "^4.0.527",
-    "three": "^0.186.0"
+    "remotion": "^4.0.527"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

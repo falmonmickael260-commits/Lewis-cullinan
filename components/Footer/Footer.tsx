@@ -10,6 +10,7 @@ export function Footer() {
             <span className="font-display text-xl text-chrome">
               CULLINAN
             </span>
+            <p className="mt-1 text-xs italic text-chrome/35">par Nexoo</p>
             <p className="mt-3 max-w-xs text-sm text-chrome/40">
               Une expérience conceptuelle non officielle explorant le
               langage de design de la Rolls-Royce Cullinan. Non affiliée
@@ -44,21 +45,7 @@ export function Footer() {
         </div>
 
         <p className="mt-6 text-xs text-chrome/25">
-          Modèle 3D &laquo;&nbsp;Rolls-Royce Cullinan 2018&nbsp;&raquo; par{" "}
-          <a
-            href="https://sketchfab.com/szymonpasterczyk734"
-            className="underline decoration-chrome/20 underline-offset-2 hover:text-chrome/50"
-          >
-            DEMON_SCARY1235
-          </a>
-          , sous licence{" "}
-          <a
-            href="https://creativecommons.org/licenses/by/4.0/"
-            className="underline decoration-chrome/20 underline-offset-2 hover:text-chrome/50"
-          >
-            CC BY 4.0
-          </a>
-          . Photographies libres de droits via{" "}
+          Photographies et vidéo libres de droits via{" "}
           <a
             href="https://www.pexels.com"
             className="underline decoration-chrome/20 underline-offset-2 hover:text-chrome/50"

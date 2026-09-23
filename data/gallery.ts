@@ -45,6 +45,8 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     caption: "Un habitacle pensé pour le silence, puis rempli d'intention.",
     gradient:
       "radial-gradient(90% 90% at 30% 100%, #17171a 0%, #030303 55%), linear-gradient(140deg, #060606 0%, #0c0c0e 100%)",
+    image: "/images/interior-dash.jpg",
+    imageAlt: "Tableau de bord Rolls-Royce, compteurs et fibre de carbone",
   },
   {
     index: "05",
@@ -61,5 +63,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     caption: "Une immobilité qui capte plus l'attention que le mouvement ne le pourrait.",
     gradient:
       "radial-gradient(100% 100% at 50% 50%, #19191c 0%, #030303 60%), linear-gradient(210deg, #000 0%, #0e0e10 100%)",
+    image: "/images/interior-console.jpg",
+    imageAlt: "Console centrale Rolls-Royce en fibre de carbone et cuir",
   },
 ];
