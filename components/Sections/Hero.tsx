@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useReducedMotion } from "@/lib/useReducedMotion";
+import { withBasePath } from "@/lib/basePath";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -90,7 +91,7 @@ export function Hero() {
           {reducedMotion ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
-              src="/images/cullinan-front-blue.jpg"
+              src={withBasePath("/images/cullinan-front-blue.jpg")}
               alt="Rolls-Royce Cullinan noir mat, calandre éclairée, présentée devant une œuvre murale bleue"
               className="h-full w-full object-cover"
               style={{ filter: "brightness(0.85)" }}
@@ -101,11 +102,14 @@ export function Hero() {
               muted
               loop
               playsInline
-              poster="/images/cullinan-front-blue.jpg"
+              poster={withBasePath("/images/cullinan-front-blue.jpg")}
               className="h-full w-full object-cover"
               style={{ filter: "brightness(0.85)" }}
             >
-              <source src="/videos/hero-mascot.mp4" type="video/mp4" />
+              <source
+                src={withBasePath("/videos/hero-mascot.mp4")}
+                type="video/mp4"
+              />
             </video>
           )}
         </div>
